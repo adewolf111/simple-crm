@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple CRM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Simple CRM</h1>
+      <button id="newContactBtn" class="btn btn-primary">+ New Contact</button>
+    </header>
+
+    <div class="toolbar">
+      <input id="searchInput" type="text" placeholder="Search name, email, company...">
+      <div class="status-filters" id="statusFilters">
+        <button class="chip active" data-status="">All</button>
+        <button class="chip" data-status="Lead">Lead</button>
+        <button class="chip" data-status="Contacted">Contacted</button>
+        <button class="chip" data-status="Won">Won</button>
+        <button class="chip" data-status="Lost">Lost</button>
+      </div>
+    </div>
+
+    <div id="contactList" class="contact-list"></div>
+    <div id="emptyState" class="empty-state" hidden>No contacts yet. Add your first one.</div>
+  </div>
+
+  <div id="modalOverlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <h2 id="modalTitle">New Contact</h2>
+      <form id="contactForm">
+        <input type="hidden" id="contactId">
+        <label>Name *
+          <input type="text" id="fieldName" required>
+        </label>
+        <label>Email
+          <input type="email" id="fieldEmail">
+        </label>
+        <label>Phone
+          <input type="text" id="fieldPhone">
+        </label>
+        <label>Company
+          <input type="text" id="fieldCompany">
+        </label>
+        <label>Status
+          <select id="fieldStatus">
+            <option>Lead</option>
+            <option>Contacted</option>
+            <option>Won</option>
+            <option>Lost</option>
+          </select>
+        </label>
+        <label>Notes
+          <textarea id="fieldNotes" rows="4"></textarea>
+        </label>
+        <div class="modal-actions">
+          <button type="button" id="deleteBtn" class="btn btn-danger" hidden>Delete</button>
+          <div class="modal-actions-right">
+            <button type="button" id="cancelBtn" class="btn">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
